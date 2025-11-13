@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Open Public Link</title>
+  <meta name="description" content="Simple page with a button that opens a public link">
+  <style>
+    :root{--bg:#f6f9ff;--card:#fff;--accent:#2563eb}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+    body{display:grid;place-items:center;background:linear-gradient(180deg,var(--bg),#eef6ff);padding:2rem}
+    .card{background:var(--card);padding:2.25rem;border-radius:12px;box-shadow:0 8px 30px rgba(20,30,60,0.08);max-width:520px;width:100%;text-align:center}
+    h1{margin:0 0 .5rem;font-size:1.5rem}
+    p{margin:0 0 1.5rem;color:#334155}
+    .btn{display:inline-flex;gap:.6rem;align-items:center;padding:.7rem 1.1rem;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    .small{font-size:.9rem;color:#64748b;margin-top:1rem}
+    footer{margin-top:1.25rem;font-size:.85rem;color:#94a3b8}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>OOPs... You got pranked!</h1>
+    <p>Anyways...Could you please fill our survey?.</p>
+
+    <!-- Replace https://example.com with the URL you want to open publicly -->
+    <a id="open-link" class="btn" href="https://forms.gle/Uqg9qcpFzu89kWT9A" target="_blank" rel="noopener noreferrer">
+      Open link
+    </a>
+
+    <footer>Thank you so  much!</footer>
+  </main>
+
+  <script>
+    // Optional: open automatically if ?auto=true is appended to the URL
+    (function(){
+      try{
+        const url = new URL(location.href);
+        if(url.searchParams.get('auto') === 'true'){
+          document.getElementById('open-link').click();
+        }
+      }catch(e){/* ignore */}
+    })();
+  </script>
+</body>
+</html>
